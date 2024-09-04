@@ -70,5 +70,32 @@
 
         observerXXXXX.observe(imagenReferenciaXXXXX); // Observar la imagen de referencia
     </script>
+<div id="welcomeMessage">Bienvenido a tu aula virtual</div>
+
+<script>
+(function() {
+    // Función para obtener el nombre del usuario de la página de Moodle
+    function getUserName() {
+        var userNameElement = document.querySelector('.usertext');
+        if (userNameElement) {
+            return userNameElement.textContent.trim();
+        }
+        return '';
+    }
+
+    // Función para actualizar el mensaje de bienvenida
+    function updateWelcomeMessage() {
+        var userName = getUserName();
+        var welcomeElement = document.getElementById('welcomeMessage');
+        if (userName && welcomeElement) {
+            welcomeElement.textContent = "Bienvenido, " + userName + ", a tu aula virtual";
+        }
+    }
+
+    // Ejecutar la función cuando el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', updateWelcomeMessage);
+})();
+</script>
+    
 </body>
 </html>
