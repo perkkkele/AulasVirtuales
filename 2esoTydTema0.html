@@ -72,28 +72,54 @@
     </script>
 <div id="welcomeMessage">Bienvenido a tu aula virtual</div>
 
+<div id="welcomeMessage">Bienvenido a tu aula virtual</div>
+
 <script>
 (function() {
-    // Función para obtener el nombre del usuario de la página de Moodle
     function getUserName() {
-        var userNameElement = document.querySelector('.usertext');
-        if (userNameElement) {
-            return userNameElement.textContent.trim();
+        // Intenta obtener el nombre del menú de usuario
+        var userMenu = document.querySelector('.usermenu .usertext');
+        if (userMenu) {
+            return userMenu.textContent.trim();
         }
+
+        // Intenta obtener el nombre del área de perfil
+        var profileName = document.querySelector('.userprofile .profile_tree .name');
+        if (profileName) {
+            return profileName.textContent.trim();
+        }
+
+        // Intenta obtener el nombre de la barra de navegación
+        var navbarName = document.querySelector('.navbar-nav .usertext');
+        if (navbarName) {
+            return navbarName.textContent.trim();
+        }
+
+        // Si todo lo demás falla, busca cualquier elemento con la clase 'usertext'
+        var anyUserText = document.querySelector('.usertext');
+        if (anyUserText) {
+            return anyUserText.textContent.trim();
+        }
+
         return '';
     }
 
-    // Función para actualizar el mensaje de bienvenida
     function updateWelcomeMessage() {
         var userName = getUserName();
         var welcomeElement = document.getElementById('welcomeMessage');
         if (userName && welcomeElement) {
             welcomeElement.textContent = "Bienvenido, " + userName + ", a tu aula virtual";
+        } else {
+            console.log("No se pudo encontrar el nombre del usuario o el elemento de bienvenida.");
         }
     }
 
     // Ejecutar la función cuando el DOM esté completamente cargado
-    document.addEventListener('DOMContentLoaded', updateWelcomeMessage);
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", updateWelcomeMessage);
+    } else {
+        updateWelcomeMessage();
+    }
 })();
 </script>
     
