@@ -75,52 +75,9 @@
 <div id="welcomeMessage">Bienvenido a tu aula virtual</div>
 
 <script>
-(function() {
-    function getUserName() {
-        // Intenta obtener el nombre del menú de usuario
-        var userMenu = document.querySelector('.usermenu .usertext');
-        if (userMenu) {
-            return userMenu.textContent.trim();
-        }
-
-        // Intenta obtener el nombre del área de perfil
-        var profileName = document.querySelector('.userprofile .profile_tree .name');
-        if (profileName) {
-            return profileName.textContent.trim();
-        }
-
-        // Intenta obtener el nombre de la barra de navegación
-        var navbarName = document.querySelector('.navbar-nav .usertext');
-        if (navbarName) {
-            return navbarName.textContent.trim();
-        }
-
-        // Si todo lo demás falla, busca cualquier elemento con la clase 'usertext'
-        var anyUserText = document.querySelector('.usertext');
-        if (anyUserText) {
-            return anyUserText.textContent.trim();
-        }
-
-        return '';
-    }
-
-    function updateWelcomeMessage() {
-        var userName = getUserName();
-        var welcomeElement = document.getElementById('welcomeMessage');
-        if (userName && welcomeElement) {
-            welcomeElement.textContent = "Bienvenido, " + userName + ", a tu aula virtual";
-        } else {
-            console.log("No se pudo encontrar el nombre del usuario o el elemento de bienvenida.");
-        }
-    }
-
-    // Ejecutar la función cuando el DOM esté completamente cargado
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", updateWelcomeMessage);
-    } else {
-        updateWelcomeMessage();
-    }
-})();
+    // Verifica si el campo de nombre está presente en la página
+    var nombreUsuario = document.getElementById('id_firstname').value;
+    document.write("Bienvenido, " + nombreUsuario);
 </script>
     
 </body>
