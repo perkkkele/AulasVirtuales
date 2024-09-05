@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresión y Comunicación de Ideas</title>
+    <style>
+        body {
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: flex-start;
+            margin: 20px;
+        }
+
+        img {
+            display: block;
+            margin-right: 20px;
+            border: none;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 350px;
+            height: 197px;
+        }
+
+        .texto-escritura {
+            font-family: monospace;
+            white-space: pre-wrap;
+            text-align: left;
+            display: inline; /* Para evitar desplazamientos */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: black; /* Color del cursor */
+            margin-left: 2px;
+            animation: parpadeo 1s steps(1) infinite;
+        }
+
+        /* Efecto de parpadeo */
+        @keyframes parpadeo {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img id="imagenReferenciaEXPRESIONYCOMUNICACIONDEIDEAS" src="https://aulavirtual35.educa.madrid.org/ies.emiliocastelar.madrid/draftfile.php/41971/user/draft/433868715/impresion3d.gif" alt="Imagen de referenciaEXPRESIONYCOMUNICACIONDEIDEAS">
+    
+    <div id="fraseEXPRESIONYCOMUNICACIONDEIDEAS" class="texto-escritura"></div>
+
+    <script>
+        const imagenReferenciaEXPRESIONYCOMUNICACIONDEIDEAS = document.getElementById("imagenReferenciaEXPRESIONYCOMUNICACIONDEIDEAS");
+        const fraseEXPRESIONYCOMUNICACIONDEIDEAS = "La llegada de la impresión 3D al ámbito doméstico ha puesto la fabricación de piezas y utensilios de plástico y otros materiales al alcance de todas las personas, con un menor coste y una mayor versatilidad en el diseño al poder adaptarlo a nuestras propias necesidades.Los usos son tan variados que abarcan el ámbito educativo, las aplicaciones médicas(prótesis, órganos...), la ingeniería(fabricación de piezas complejas que antes solamente se podían producir en grandes cantidades), el calzado y la vestimenta personalizados, las réplicas en relieve para personas con minusvalía visual(maquetas de monumentos, planos, cuadros...), etc.";
+
+        function escribirEXPRESIONYCOMUNICACIONDEIDEAS(frase, fraseElemento) {
+            let iEXPRESIONYCOMUNICACIONDEIDEAS = 0;
+            fraseElemento.innerHTML = ""; // Inicializamos el contenido del elemento con la frase
+
+            const cursor = document.createElement("span"); // Creamos el cursor
+            cursor.classList.add("cursor"); // Le damos la clase para el estilo
+            fraseElemento.appendChild(cursor); // Añadimos el cursor al final del texto
+
+            function agregarCaracterEXPRESIONYCOMUNICACIONDEIDEAS() {
+                if (iEXPRESIONYCOMUNICACIONDEIDEAS < frase.length) {
+                    cursor.remove(); // Quitamos temporalmente el cursor antes de añadir un nuevo carácter
+                    fraseElemento.innerHTML += frase.charAt(iEXPRESIONYCOMUNICACIONDEIDEAS); // Añadimos el siguiente carácter
+                    fraseElemento.appendChild(cursor); // Volvemos a añadir el cursor
+                    iEXPRESIONYCOMUNICACIONDEIDEAS++;
+
+                    // Velocidades diferentes para caracteres y espacios
+                    const esEspacio = frase.charAt(iEXPRESIONYCOMUNICACIONDEIDEAS - 1) === ' ';
+                    const delay = esEspacio ? Math.random() * (300 - 200) + 100 : Math.random() * (80 - 30) + 30;
+
+                    setTimeout(agregarCaracterEXPRESIONYCOMUNICACIONDEIDEAS, delay); // Ajustamos el tiempo entre caracteres y palabras
+                } else {
+                    // Cuando se termina de escribir la frase, iniciamos el temporizador de 5 segundos
+                    setTimeout(() => {
+                        cursor.style.display = 'none'; // Ocultamos el cursor
+                    }, 5000); // Desaparece el cursor después de 5 segundos
+                }
+            }
+
+            agregarCaracterEXPRESIONYCOMUNICACIONDEIDEAS();
+        }
+
+        const opcionesObservadorEXPRESIONYCOMUNICACIONDEIDEAS = {
+            rootMargin: "0px",
+            threshold: 0.5
+        };
+
+        const observerEXPRESIONYCOMUNICACIONDEIDEAS = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    escribirEXPRESIONYCOMUNICACIONDEIDEAS(fraseEXPRESIONYCOMUNICACIONDEIDEAS, document.getElementById("fraseEXPRESIONYCOMUNICACIONDEIDEAS"));
+                    observerEXPRESIONYCOMUNICACIONDEIDEAS.unobserve(imagenReferenciaEXPRESIONYCOMUNICACIONDEIDEAS); // Dejar de observar la imagen después de iniciar la escritura automática
+                } else {
+                    document.getElementById("fraseEXPRESIONYCOMUNICACIONDEIDEAS").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
+                }
+            });
+        }, opcionesObservadorEXPRESIONYCOMUNICACIONDEIDEAS);
+
+        observerEXPRESIONYCOMUNICACIONDEIDEAS.observe(imagenReferenciaEXPRESIONYCOMUNICACIONDEIDEAS); // Observar la imagen de referencia
+    </script>
+
+</body>
+</html>
