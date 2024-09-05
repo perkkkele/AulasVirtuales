@@ -1,0 +1,34 @@
+<div id="container" style="position: relative;">
+    <img id="image" src="https://perkkkele.github.io/AulasVirtuales/MarcoTablet.png" alt="Imagen de fondo" style="display: block; width: 100%;">
+
+    <div id="iframe-container88888" style="position: absolute;"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var image88888 = document.getElementById('image');
+        var iframeContainer88888 = document.getElementById('iframe-container88888');
+
+        var originalWidth88888 = 1426;
+        var originalHeight88888 = 938;
+        var transparentWidth88888 = 1206;
+        var transparentHeight88888 = 748;
+        var transparentTop88888 = 85;
+        var transparentLeft88888 = 116;
+
+        var containerWidth88888 = image88888.offsetWidth;
+        var scaleFactor88888 = containerWidth88888 / originalWidth88888;
+
+        var iframeWidth88888 = transparentWidth88888 * scaleFactor88888;
+        var iframeHeight88888 = transparentHeight88888 * scaleFactor88888;
+        var iframeTop88888 = transparentTop88888 * scaleFactor88888;
+        var iframeLeft88888 = transparentLeft88888 * scaleFactor88888;
+
+        iframeContainer88888.style.width = iframeWidth88888 + 'px';
+        iframeContainer88888.style.height = iframeHeight88888 + 'px';
+        iframeContainer88888.style.top = iframeTop88888 + 'px';
+        iframeContainer88888.style.left = iframeLeft88888 + 'px';
+
+        iframeContainer88888.innerHTML = '<iframe title="FUTURE PRESENTATION" frameborder="0" width="100%" height="100%" style="width: 100%; height: 100%;" src="https://view.genial.ly/653b7b114d02f50012714db6" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>';
+    });
+</script>
