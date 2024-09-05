@@ -1,0 +1,34 @@
+<div id="container" style="position: relative;">
+    <img id="image" src="https://perkkkele.github.io/AulasVirtuales/MarcoTablet.png" alt="Imagen de fondo" style="display: block; width: 100%;">
+
+    <div id="iframe-container33333" style="position: absolute;"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var image33333 = document.getElementById('image');
+        var iframeContainer33333 = document.getElementById('iframe-container33333');
+
+        var originalWidth33333 = 1426;
+        var originalHeight33333 = 938;
+        var transparentWidth33333 = 1206;
+        var transparentHeight33333 = 748;
+        var transparentTop33333 = 85;
+        var transparentLeft33333 = 116;
+
+        var containerWidth33333 = image33333.offsetWidth;
+        var scaleFactor33333 = containerWidth33333 / originalWidth33333;
+
+        var iframeWidth33333 = transparentWidth33333 * scaleFactor33333;
+        var iframeHeight33333 = transparentHeight33333 * scaleFactor33333;
+        var iframeTop33333 = transparentTop33333 * scaleFactor33333;
+        var iframeLeft33333 = transparentLeft33333 * scaleFactor33333;
+
+        iframeContainer33333.style.width = iframeWidth33333 + 'px';
+        iframeContainer33333.style.height = iframeHeight33333 + 'px';
+        iframeContainer33333.style.top = iframeTop33333 + 'px';
+        iframeContainer33333.style.left = iframeLeft33333 + 'px';
+
+        iframeContainer33333.innerHTML = '<iframe title="2º ESO. PÁGINAS W" frameborder="0" width="100%" height="100%" style="width: 100%; height: 100%;" src="https://view.genial.ly/63d7b60d83525f00199b6e4e" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>';
+    });
+</script>
