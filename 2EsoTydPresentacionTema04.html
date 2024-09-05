@@ -1,0 +1,34 @@
+<div id="container" style="position: relative;">
+    <img id="image" src="https://perkkkele.github.io/AulasVirtuales/MarcoTablet.png" alt="Imagen de fondo" style="display: block; width: 100%;">
+
+    <div id="iframe-containerLASESTRUCTURAS" style="position: absolute;"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var imageLASESTRUCTURAS = document.getElementById('image');
+        var iframeContainerLASESTRUCTURAS = document.getElementById('iframe-containerLASESTRUCTURAS');
+
+        var originalWidthLASESTRUCTURAS = 1426;
+        var originalHeightLASESTRUCTURAS = 938;
+        var transparentWidthLASESTRUCTURAS = 1206;
+        var transparentHeightLASESTRUCTURAS = 748;
+        var transparentTopLASESTRUCTURAS = 85;
+        var transparentLeftLASESTRUCTURAS = 116;
+
+        var containerWidthLASESTRUCTURAS = imageLASESTRUCTURAS.offsetWidth;
+        var scaleFactorLASESTRUCTURAS = containerWidthLASESTRUCTURAS / originalWidthLASESTRUCTURAS;
+
+        var iframeWidthLASESTRUCTURAS = transparentWidthLASESTRUCTURAS * scaleFactorLASESTRUCTURAS;
+        var iframeHeightLASESTRUCTURAS = transparentHeightLASESTRUCTURAS * scaleFactorLASESTRUCTURAS;
+        var iframeTopLASESTRUCTURAS = transparentTopLASESTRUCTURAS * scaleFactorLASESTRUCTURAS;
+        var iframeLeftLASESTRUCTURAS = transparentLeftLASESTRUCTURAS * scaleFactorLASESTRUCTURAS;
+
+        iframeContainerLASESTRUCTURAS.style.width = iframeWidthLASESTRUCTURAS + 'px';
+        iframeContainerLASESTRUCTURAS.style.height = iframeHeightLASESTRUCTURAS + 'px';
+        iframeContainerLASESTRUCTURAS.style.top = iframeTopLASESTRUCTURAS + 'px';
+        iframeContainerLASESTRUCTURAS.style.left = iframeLeftLASESTRUCTURAS + 'px';
+
+        iframeContainerLASESTRUCTURAS.innerHTML = '<iframe title="LAS ESTRUCTURAS" frameborder="0" width="100%" height="100%" style="width: 100%; height: 100%;" src="https://view.genial.ly/64313b40f2d39400137319a7" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>';
+    });
+</script>
