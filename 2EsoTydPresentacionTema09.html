@@ -1,0 +1,34 @@
+<div id="container" style="position: relative;">
+    <img id="image" src="https://perkkkele.github.io/AulasVirtuales/MarcoTablet.png" alt="Imagen de fondo" style="display: block; width: 100%;">
+
+    <div id="iframe-container11111" style="position: absolute;"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var image11111 = document.getElementById('image');
+        var iframeContainer11111 = document.getElementById('iframe-container11111');
+
+        var originalWidth11111 = 1426;
+        var originalHeight11111 = 938;
+        var transparentWidth11111 = 1206;
+        var transparentHeight11111 = 748;
+        var transparentTop11111 = 85;
+        var transparentLeft11111 = 116;
+
+        var containerWidth11111 = image11111.offsetWidth;
+        var scaleFactor11111 = containerWidth11111 / originalWidth11111;
+
+        var iframeWidth11111 = transparentWidth11111 * scaleFactor11111;
+        var iframeHeight11111 = transparentHeight11111 * scaleFactor11111;
+        var iframeTop11111 = transparentTop11111 * scaleFactor11111;
+        var iframeLeft11111 = transparentLeft11111 * scaleFactor11111;
+
+        iframeContainer11111.style.width = iframeWidth11111 + 'px';
+        iframeContainer11111.style.height = iframeHeight11111 + 'px';
+        iframeContainer11111.style.top = iframeTop11111 + 'px';
+        iframeContainer11111.style.left = iframeLeft11111 + 'px';
+
+        iframeContainer11111.innerHTML = '<iframe title="2ºESO. TEMA 1. ANÁLISIS Y RESOLUCIÓN DE PROBLEMAS CON ALGORITMOS" frameborder="0" width="100%" height="100%" style="width: 100%; height: 100%;" src="https://view.genial.ly/6332a7528896be00126b326c" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>';
+    });
+</script>
