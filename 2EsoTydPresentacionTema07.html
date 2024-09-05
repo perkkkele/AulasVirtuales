@@ -1,0 +1,34 @@
+<div id="container" style="position: relative;">
+    <img id="image" src="https://perkkkele.github.io/AulasVirtuales/MarcoTablet.png" alt="Imagen de fondo" style="display: block; width: 100%;">
+
+    <div id="iframe-container66666" style="position: absolute;"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var image66666 = document.getElementById('image');
+        var iframeContainer66666 = document.getElementById('iframe-container66666');
+
+        var originalWidth66666 = 1426;
+        var originalHeight66666 = 938;
+        var transparentWidth66666 = 1206;
+        var transparentHeight66666 = 748;
+        var transparentTop66666 = 85;
+        var transparentLeft66666 = 116;
+
+        var containerWidth66666 = image66666.offsetWidth;
+        var scaleFactor66666 = containerWidth66666 / originalWidth66666;
+
+        var iframeWidth66666 = transparentWidth66666 * scaleFactor66666;
+        var iframeHeight66666 = transparentHeight66666 * scaleFactor66666;
+        var iframeTop66666 = transparentTop66666 * scaleFactor66666;
+        var iframeLeft66666 = transparentLeft66666 * scaleFactor66666;
+
+        iframeContainer66666.style.width = iframeWidth66666 + 'px';
+        iframeContainer66666.style.height = iframeHeight66666 + 'px';
+        iframeContainer66666.style.top = iframeTop66666 + 'px';
+        iframeContainer66666.style.left = iframeLeft66666 + 'px';
+
+        iframeContainer66666.innerHTML = '<iframe title="2º ESO. ELECTRICIDAD" frameborder="0" width="100%" height="100%" style="width: 100%; height: 100%;" src="https://view.genial.ly/6431e4d6dc04fb00111c0529" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>';
+    });
+</script>
