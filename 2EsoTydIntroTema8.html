@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnología de la Información</title>
+    <style>
+        body {
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: flex-start;
+            margin: 20px;
+        }
+
+        img {
+            display: block;
+            margin-right: 20px;
+            border: none;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 350px;
+            height: 177px;
+        }
+
+        .texto-escritura {
+            font-family: monospace;
+            white-space: pre-wrap;
+            text-align: left;
+            display: inline; /* Para evitar desplazamientos */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: black; /* Color del cursor */
+            margin-left: 2px;
+            animation: parpadeo 1s steps(1) infinite;
+        }
+
+        /* Efecto de parpadeo */
+        @keyframes parpadeo {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img id="ImagenTema8TecnologiaInformacion" src="https://aulavirtual35.educa.madrid.org/ies.emiliocastelar.madrid/draftfile.php/41971/user/draft/716472286/PartesOrdenador.gif" alt="Imagen de referencia88888TecnologiaInformacion">
+    
+    <div id="frase88888TecnologiaInformacion" class="texto-escritura"></div>
+
+    <script>
+        const ImagenTema8TecnologiaInformacion = document.getElementById("ImagenTema8TecnologiaInformacion");
+        const frase88888TecnologiaInformacion = "¿Alguna vez te has preguntado cómo un simple clic en tu computadora desencadena una serie de procesos complejos que resultan en una acción específica?\nEn esta unidad, exploraremos el funcionamiento interno de los ordenadores, desde sus componentes físicos hasta los programas que los impulsan.\nPrepárate para entender cómo se gestionan los datos y cómo las máquinas convierten los ceros y unos en herramientas poderosas que nos facilitan la vida.";
+
+        function escribir88888TecnologiaInformacion(frase, fraseElemento) {
+            let i88888TecnologiaInformacion = 0;
+            fraseElemento.innerHTML = ""; // Inicializamos el contenido del elemento con la frase
+
+            const cursor = document.createElement("span"); // Creamos el cursor
+            cursor.classList.add("cursor"); // Le damos la clase para el estilo
+            fraseElemento.appendChild(cursor); // Añadimos el cursor al final del texto
+
+            function agregarCaracter88888TecnologiaInformacion() {
+                if (i88888TecnologiaInformacion < frase.length) {
+                    cursor.remove(); // Quitamos temporalmente el cursor antes de añadir un nuevo carácter
+                    fraseElemento.innerHTML += frase.charAt(i88888TecnologiaInformacion); // Añadimos el siguiente carácter
+                    fraseElemento.appendChild(cursor); // Volvemos a añadir el cursor
+                    i88888TecnologiaInformacion++;
+
+                    // Velocidades diferentes para caracteres y espacios
+                    const esEspacio = frase.charAt(i88888TecnologiaInformacion - 1) === ' ';
+                    const delay = esEspacio ? Math.random() * (300 - 200) + 200 : Math.random() * (80 - 30) + 30;
+
+                    setTimeout(agregarCaracter88888TecnologiaInformacion, delay); // Ajustamos el tiempo entre caracteres y palabras
+                } else {
+                    // Cuando se termina de escribir la frase, iniciamos el temporizador de 5 segundos
+                    setTimeout(() => {
+                        cursor.style.display = 'none'; // Ocultamos el cursor
+                    }, 5000); // Desaparece el cursor después de 5 segundos
+                }
+            }
+
+            agregarCaracter88888TecnologiaInformacion();
+        }
+
+        const opcionesObservador88888TecnologiaInformacion = {
+            rootMargin: "0px",
+            threshold: 0.5
+        };
+
+        const observer88888TecnologiaInformacion = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    escribir88888TecnologiaInformacion(frase88888TecnologiaInformacion, document.getElementById("frase88888TecnologiaInformacion"));
+                    observer88888TecnologiaInformacion.unobserve(ImagenTema8TecnologiaInformacion); // Dejar de observar la imagen después de iniciar la escritura automática
+                } else {
+                    document.getElementById("frase88888TecnologiaInformacion").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
+                }
+            });
+        }, opcionesObservador88888TecnologiaInformacion);
+
+        observer88888TecnologiaInformacion.observe(ImagenTema8TecnologiaInformacion); // Observar la imagen de referencia
+    </script>
+
+</body>
+</html>
