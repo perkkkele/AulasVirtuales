@@ -29,6 +29,23 @@
             text-align: justify;
             font-weight: bold;
         }
+
+        /* Cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: black; /* Color del cursor */
+            margin-left: 2px; /* Espacio entre el texto y el cursor */
+            animation: parpadeo 1s steps(1) infinite;
+        }
+
+        /* Efecto de parpadeo */
+        @keyframes parpadeo {
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -42,13 +59,29 @@
 
         function escribirELMUNDODELATECNOLOGIA(frase, fraseElemento) {
             let iELMUNDODELATECNOLOGIA = 0;
-            fraseElemento.innerHTML = "";
+            fraseElemento.innerHTML = ""; // Inicializamos el contenido del elemento con la frase
+
+            const cursor = document.createElement("span"); // Creamos el cursor
+            cursor.classList.add("cursor"); // Le damos la clase para el estilo
+            fraseElemento.appendChild(cursor); // Añadimos el cursor al final del texto
 
             function agregarCaracterELMUNDODELATECNOLOGIA() {
                 if (iELMUNDODELATECNOLOGIA < frase.length) {
-                    fraseElemento.innerHTML += frase.charAt(iELMUNDODELATECNOLOGIA);
+                    cursor.remove(); // Quitamos temporalmente el cursor antes de añadir un nuevo carácter
+                    fraseElemento.innerHTML += frase.charAt(iELMUNDODELATECNOLOGIA); // Añadimos el siguiente carácter
+                    fraseElemento.appendChild(cursor); // Volvemos a añadir el cursor
                     iELMUNDODELATECNOLOGIA++;
-                    setTimeout(agregarCaracterELMUNDODELATECNOLOGIA, 50);
+
+                    // Velocidades diferentes para caracteres y espacios
+                    const esEspacio = frase.charAt(iELMUNDODELATECNOLOGIA - 1) === ' ';
+                    const delay = esEspacio ? Math.random() * (300 - 200) + 100 : Math.random() * (80 - 30) + 30;
+                    
+                    setTimeout(agregarCaracterELMUNDODELATECNOLOGIA, delay); // Ajustamos el tiempo entre caracteres y palabras
+                } else {
+                    // Cuando se termina de escribir la frase, iniciamos el temporizador de 5 segundos
+                    setTimeout(() => {
+                        cursor.style.display = 'none'; // Ocultamos el cursor
+                    }, 5000); // Desaparece el cursor después de 5 segundos
                 }
             }
 
