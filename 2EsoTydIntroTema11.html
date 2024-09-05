@@ -49,34 +49,34 @@
 </head>
 <body>
 
-    <img id="imagenReferencia88888" src="https://perkkkele.github.io/AulasVirtuales/2EsoTydIntro11Imagen1.gif" alt="Imagen de referencia88888">
+    <img id="imagenReferencia11" src="https://perkkkele.github.io/AulasVirtuales/2EsoTydIntro11Imagen1.gif" alt="Imagen de referencia11">
     
-    <div id="frase88888" class="texto-escritura"></div>
+    <div id="frase11" class="texto-escritura"></div>
 
     <script>
-        const imagenReferencia88888 = document.getElementById("imagenReferencia88888");
-        const frase88888 = "La IA se está utilizando en muchos campos, como la medicina, la manufactura, la seguridad, el transporte y la atención al cliente. Los asistentes virtuales, los vehículos autónomos y los sistemas de recomendación son solo algunos ejemplos de aplicaciones de la IA que están transformando la forma en que vivimos y trabajamos. A medida que la tecnología continúa avanzando, se espera que la IA desempeñe un papel cada vez más importante en nuestras vidas. Vamos a ver como la IA impacta en nuestra vida";
+        const imagenReferencia11 = document.getElementById("imagenReferencia11");
+        const frase11 = "La IA se está utilizando en muchos campos, como la medicina, la manufactura, la seguridad, el transporte y la atención al cliente. Los asistentes virtuales, los vehículos autónomos y los sistemas de recomendación son solo algunos ejemplos de aplicaciones de la IA que están transformando la forma en que vivimos y trabajamos. A medida que la tecnología continúa avanzando, se espera que la IA desempeñe un papel cada vez más importante en nuestras vidas. Vamos a ver como la IA impacta en nuestra vida";
 
-        function escribir88888(frase, fraseElemento) {
-            let i88888 = 0;
+        function escribir11(frase, fraseElemento) {
+            let i11 = 0;
             fraseElemento.innerHTML = ""; // Inicializamos el contenido del elemento con la frase
 
             const cursor = document.createElement("span"); // Creamos el cursor
             cursor.classList.add("cursor"); // Le damos la clase para el estilo
             fraseElemento.appendChild(cursor); // Añadimos el cursor al final del texto
 
-            function agregarCaracter88888() {
-                if (i88888 < frase.length) {
+            function agregarCaracter11() {
+                if (i11 < frase.length) {
                     cursor.remove(); // Quitamos temporalmente el cursor antes de añadir un nuevo carácter
-                    fraseElemento.innerHTML += frase.charAt(i88888); // Añadimos el siguiente carácter
+                    fraseElemento.innerHTML += frase.charAt(i11); // Añadimos el siguiente carácter
                     fraseElemento.appendChild(cursor); // Volvemos a añadir el cursor
-                    i88888++;
+                    i11++;
 
                     // Velocidades diferentes para caracteres y espacios
-                    const esEspacio = frase.charAt(i88888 - 1) === ' ';
+                    const esEspacio = frase.charAt(i11 - 1) === ' ';
                     const delay = esEspacio ? Math.random() * (300 - 200) + 100 : Math.random() * (80 - 30) + 30;
 
-                    setTimeout(agregarCaracter88888, delay); // Ajustamos el tiempo entre caracteres y palabras
+                    setTimeout(agregarCaracter11, delay); // Ajustamos el tiempo entre caracteres y palabras
                 } else {
                     // Cuando se termina de escribir la frase, iniciamos el temporizador de 5 segundos
                     setTimeout(() => {
@@ -85,27 +85,28 @@
                 }
             }
 
-            agregarCaracter88888();
+            agregarCaracter11();
         }
 
-        const opcionesObservador88888 = {
+        const opcionesObservador11 = {
             rootMargin: "0px",
             threshold: 0.5
         };
 
-        const observer88888 = new IntersectionObserver(function(entries, observer) {
+        const observer11 = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    escribir88888(frase88888, document.getElementById("frase88888"));
-                    observer88888.unobserve(imagenReferencia88888); // Dejar de observar la imagen después de iniciar la escritura automática
+                    escribir11(frase11, document.getElementById("frase11"));
+                    observer11.unobserve(imagenReferencia11); // Dejar de observar la imagen después de iniciar la escritura automática
                 } else {
-                    document.getElementById("frase88888").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
+                    document.getElementById("frase11").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
                 }
             });
-        }, opcionesObservador88888);
+        }, opcionesObservador11);
 
-        observer88888.observe(imagenReferencia88888); // Observar la imagen de referencia
+        observer11.observe(imagenReferencia11); // Observar la imagen de referencia
     </script>
 
 </body>
 </html>
+
