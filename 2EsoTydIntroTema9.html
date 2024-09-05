@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis y Resolución de Problemas mediante Algoritmos</title>
+    <style>
+        body {
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: flex-start;
+            margin: 20px;
+        }
+
+        img {
+            display: block;
+            margin-right: 20px;
+            border: none;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 350px;
+            height: 177px;
+        }
+
+        .texto-escritura {
+            font-family: monospace;
+            white-space: pre-wrap;
+            text-align: left;
+            display: inline; /* Para evitar desplazamientos */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: black; /* Color del cursor */
+            margin-left: 2px;
+            animation: parpadeo 1s steps(1) infinite;
+        }
+
+        /* Efecto de parpadeo */
+        @keyframes parpadeo {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img id="imagenReferencia11111" src="https://aulavirtual35.educa.madrid.org/ies.emiliocastelar.madrid/draftfile.php/41971/user/draft/973132790/Logaritmo.gif?time=1692735656956" alt="Imagen de referencia11111">
+    
+    <div id="frase11111" class="texto-escritura"></div>
+
+    <script>
+        const imagenReferencia11111 = document.getElementById("imagenReferencia11111");
+        const frase11111 = "El análisis y resolución de problemas mediante algoritmos es una habilidad fundamental en el campo de la tecnología.\n\nEn este tema, aprenderemos a descomponer problemas complejos en pasos más pequeños y comprensibles, diseñando algoritmos que nos permitan resolverlos de manera eficiente. A través de la programación y la lógica, desarrollaremos la capacidad de pensar de manera estructurada y lógica para encontrar soluciones efectivas.\n\nPrepárense para adentrarse en el emocionante mundo de los algoritmos y descubrir cómo pueden simplificar la resolución de problemas en el ámbito tecnológico y más allá.";
+
+        function escribir11111(frase, fraseElemento) {
+            let i11111 = 0;
+            fraseElemento.innerHTML = ""; // Inicializamos el contenido del elemento con la frase
+
+            const cursor = document.createElement("span"); // Creamos el cursor
+            cursor.classList.add("cursor"); // Le damos la clase para el estilo
+            fraseElemento.appendChild(cursor); // Añadimos el cursor al final del texto
+
+            function agregarCaracter11111() {
+                if (i11111 < frase.length) {
+                    cursor.remove(); // Quitamos temporalmente el cursor antes de añadir un nuevo carácter
+                    fraseElemento.innerHTML += frase.charAt(i11111); // Añadimos el siguiente carácter
+                    fraseElemento.appendChild(cursor); // Volvemos a añadir el cursor
+                    i11111++;
+
+                    // Velocidades diferentes para caracteres y espacios
+                    const esEspacio = frase.charAt(i11111 - 1) === ' ';
+                    const delay = esEspacio ? Math.random() * (300 - 200) + 100 : Math.random() * (80 - 30) + 30;
+
+                    setTimeout(agregarCaracter11111, delay); // Ajustamos el tiempo entre caracteres y palabras
+                } else {
+                    // Cuando se termina de escribir la frase, iniciamos el temporizador de 5 segundos
+                    setTimeout(() => {
+                        cursor.style.display = 'none'; // Ocultamos el cursor
+                    }, 5000); // Desaparece el cursor después de 5 segundos
+                }
+            }
+
+            agregarCaracter11111();
+        }
+
+        const opcionesObservador11111 = {
+            rootMargin: "0px",
+            threshold: 0.5
+        };
+
+        const observer11111 = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    escribir11111(frase11111, document.getElementById("frase11111"));
+                    observer11111.unobserve(imagenReferencia11111); // Dejar de observar la imagen después de iniciar la escritura automática
+                } else {
+                    document.getElementById("frase11111").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
+                }
+            });
+        }, opcionesObservador11111);
+
+        observer11111.observe(imagenReferencia11111); // Observar la imagen de referencia
+    </script>
+
+</body>
+</html>
