@@ -1,0 +1,34 @@
+<div id="container" style="position: relative;">
+    <img id="image" src="https://perkkkele.github.io/AulasVirtuales/MarcoTablet.png" alt="Imagen de fondo" style="display: block; width: 100%;">
+
+    <div id="iframe-containerMAQUINASYMECANISMOS" style="position: absolute;"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var imageMAQUINASYMECANISMOS = document.getElementById('image');
+        var iframeContainerMAQUINASYMECANISMOS = document.getElementById('iframe-containerMAQUINASYMECANISMOS');
+
+        var originalWidthMAQUINASYMECANISMOS = 1426;
+        var originalHeightMAQUINASYMECANISMOS = 938;
+        var transparentWidthMAQUINASYMECANISMOS = 1206;
+        var transparentHeightMAQUINASYMECANISMOS = 748;
+        var transparentTopMAQUINASYMECANISMOS = 85;
+        var transparentLeftMAQUINASYMECANISMOS = 116;
+
+        var containerWidthMAQUINASYMECANISMOS = imageMAQUINASYMECANISMOS.offsetWidth;
+        var scaleFactorMAQUINASYMECANISMOS = containerWidthMAQUINASYMECANISMOS / originalWidthMAQUINASYMECANISMOS;
+
+        var iframeWidthMAQUINASYMECANISMOS = transparentWidthMAQUINASYMECANISMOS * scaleFactorMAQUINASYMECANISMOS;
+        var iframeHeightMAQUINASYMECANISMOS = transparentHeightMAQUINASYMECANISMOS * scaleFactorMAQUINASYMECANISMOS;
+        var iframeTopMAQUINASYMECANISMOS = transparentTopMAQUINASYMECANISMOS * scaleFactorMAQUINASYMECANISMOS;
+        var iframeLeftMAQUINASYMECANISMOS = transparentLeftMAQUINASYMECANISMOS * scaleFactorMAQUINASYMECANISMOS;
+
+        iframeContainerMAQUINASYMECANISMOS.style.width = iframeWidthMAQUINASYMECANISMOS + 'px';
+        iframeContainerMAQUINASYMECANISMOS.style.height = iframeHeightMAQUINASYMECANISMOS + 'px';
+        iframeContainerMAQUINASYMECANISMOS.style.top = iframeTopMAQUINASYMECANISMOS + 'px';
+        iframeContainerMAQUINASYMECANISMOS.style.left = iframeLeftMAQUINASYMECANISMOS + 'px';
+
+        iframeContainerMAQUINASYMECANISMOS.innerHTML = '<iframe title="TD2ºESO. TEMA4. MÁQUINAS Y MECANISMOS" frameborder="0" width="100%" height="100%" style="width: 100%; height: 100%;" src="https://view.genial.ly/64fee8310e8f0d00196d2acf" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>';
+    });
+</script>
