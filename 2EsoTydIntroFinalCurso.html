@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Electrónica y Robótica</title>
+    <style>
+        body {
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: flex-start;
+            margin: 20px;
+        }
+
+        img {
+            display: block;
+            margin-right: 20px;
+            border: none;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 350px;
+            height: 185px;
+        }
+
+        .texto-escritura {
+            font-family: monospace;
+            white-space: pre-wrap;
+            text-align: left;
+            display: inline; /* Para evitar desplazamientos */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: black; /* Color del cursor */
+            margin-left: 2px;
+            animation: parpadeo 1s steps(1) infinite;
+        }
+
+        /* Efecto de parpadeo */
+        @keyframes parpadeo {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img id="imagenReferenciaFINALDECURSO" src="https://aulavirtual35.educa.madrid.org/ies.emiliocastelar.madrid/draftfile.php/41971/user/draft/293905191/robotica.gif" alt="ImagenReferenciaFINALDECURSO">
+    
+    <div id="fraseFINALDECURSO" class="texto-escritura"></div>
+
+    <script>
+        const imagenReferenciaFINALDECURSO = document.getElementById("imagenReferenciaFINALDECURSO");
+        const fraseFINALDECURSO = "En este tema, aprenderemos los fundamentos de la electrónica y la programación. Descubriremos cómo combinarlos para dar vida a proyectos robóticos increíbles.\nCon Arduino, tendremos la oportunidad de desarrollar habilidades en diseño, construcción y programación, mientras exploramos conceptos como sensores, actuadores.\n¡Vamos a dar vida a su imaginación!";
+
+        function escribirFINALDECURSO(frase, fraseElemento) {
+            let iFINALDECURSO = 0;
+            fraseElemento.innerHTML = ""; // Inicializamos el contenido del elemento con la frase
+
+            const cursor = document.createElement("span"); // Creamos el cursor
+            cursor.classList.add("cursor"); // Le damos la clase para el estilo
+            fraseElemento.appendChild(cursor); // Añadimos el cursor al final del texto
+
+            function agregarCaracterFINALDECURSO() {
+                if (iFINALDECURSO < frase.length) {
+                    cursor.remove(); // Quitamos temporalmente el cursor antes de añadir un nuevo carácter
+                    fraseElemento.innerHTML += frase.charAt(iFINALDECURSO); // Añadimos el siguiente carácter
+                    fraseElemento.appendChild(cursor); // Volvemos a añadir el cursor
+                    iFINALDECURSO++;
+
+                    // Velocidades diferentes para caracteres y espacios
+                    const esEspacio = frase.charAt(iFINALDECURSO - 1) === ' ';
+                    const delay = esEspacio ? Math.random() * (300 - 200) + 100 : Math.random() * (80 - 30) + 30;
+
+                    setTimeout(agregarCaracterFINALDECURSO, delay); // Ajustamos el tiempo entre caracteres y palabras
+                } else {
+                    // Cuando se termina de escribir la frase, iniciamos el temporizador de 5 segundos
+                    setTimeout(() => {
+                        cursor.style.display = 'none'; // Ocultamos el cursor
+                    }, 5000); // Desaparece el cursor después de 5 segundos
+                }
+            }
+
+            agregarCaracterFINALDECURSO();
+        }
+
+        const opcionesObservadorFINALDECURSO = {
+            rootMargin: "0px",
+            threshold: 0.5
+        };
+
+        const observerFINALDECURSO = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    escribirFINALDECURSO(fraseFINALDECURSO, document.getElementById("fraseFINALDECURSO"));
+                    observerFINALDECURSO.unobserve(imagenReferenciaFINALDECURSO); // Dejar de observar la imagen después de iniciar la escritura automática
+                } else {
+                    document.getElementById("fraseFINALDECURSO").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
+                }
+            });
+        }, opcionesObservadorFINALDECURSO);
+
+        observerFINALDECURSO.observe(imagenReferenciaFINALDECURSO); // Observar la imagen de referencia
+    </script>
+
+</body>
+</html>
