@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Electricidad</title>
+    <style>
+        body {
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: flex-start;
+            margin: 20px;
+        }
+
+        img {
+            display: block;
+            margin-right: 20px;
+            border: none;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 350px;
+            height: 197px;
+        }
+
+        .texto-escritura {
+            font-family: monospace;
+            white-space: pre-wrap;
+            text-align: left;
+            display: inline; /* Para evitar desplazamientos */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: black; /* Color del cursor */
+            margin-left: 2px;
+            animation: parpadeo 1s steps(1) infinite;
+        }
+
+        /* Efecto de parpadeo */
+        @keyframes parpadeo {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img id="imagenReferencia66666" src="https://aulavirtual35.educa.madrid.org/ies.emiliocastelar.madrid/draftfile.php/41971/user/draft/320120713/Electricidad.gif" alt="Imagen de referencia66666">
+    
+    <div id="frase66666" class="texto-escritura"></div>
+
+    <script>
+        const imagenReferencia66666 = document.getElementById("imagenReferencia66666");
+        const frase66666 = "Es la hora de explorar los fundamentos de la electricidad y su aplicación en nuestra vida diaria. Aprenderemos sobre circuitos, componentes electrónicos y cómo utilizarlos para crear sistemas eléctricos funcionales.\n\n¡Prepárate para descubrir los secretos de la energía eléctrica.";
+
+        function escribir66666(frase, fraseElemento) {
+            let i66666 = 0;
+            fraseElemento.innerHTML = ""; // Inicializamos el contenido del elemento con la frase
+
+            const cursor = document.createElement("span"); // Creamos el cursor
+            cursor.classList.add("cursor"); // Le damos la clase para el estilo
+            fraseElemento.appendChild(cursor); // Añadimos el cursor al final del texto
+
+            function agregarCaracter66666() {
+                if (i66666 < frase.length) {
+                    cursor.remove(); // Quitamos temporalmente el cursor antes de añadir un nuevo carácter
+                    fraseElemento.innerHTML += frase.charAt(i66666); // Añadimos el siguiente carácter
+                    fraseElemento.appendChild(cursor); // Volvemos a añadir el cursor
+                    i66666++;
+
+                    // Velocidades diferentes para caracteres y espacios
+                    const esEspacio = frase.charAt(i66666 - 1) === ' ';
+                    const delay = esEspacio ? Math.random() * (300 - 200) + 200 : Math.random() * (80 - 30) + 30;
+
+                    setTimeout(agregarCaracter66666, delay); // Ajustamos el tiempo entre caracteres y palabras
+                } else {
+                    // Cuando se termina de escribir la frase, iniciamos el temporizador de 5 segundos
+                    setTimeout(() => {
+                        cursor.style.display = 'none'; // Ocultamos el cursor
+                    }, 5000); // Desaparece el cursor después de 5 segundos
+                }
+            }
+
+            agregarCaracter66666();
+        }
+
+        const opcionesObservador66666 = {
+            rootMargin: "0px",
+            threshold: 0.5
+        };
+
+        const observer66666 = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    escribir66666(frase66666, document.getElementById("frase66666"));
+                    observer66666.unobserve(imagenReferencia66666); // Dejar de observar la imagen después de iniciar la escritura automática
+                } else {
+                    document.getElementById("frase66666").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
+                }
+            });
+        }, opcionesObservador66666);
+
+        observer66666.observe(imagenReferencia66666); // Observar la imagen de referencia
+    </script>
+
+</body>
+</html>
