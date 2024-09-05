@@ -1,0 +1,34 @@
+<div id="container" style="position: relative;">
+    <img id="image" src="https://perkkkele.github.io/AulasVirtuales/MarcoTablet.png" alt="Imagen de fondo" style="display: block; width: 100%;">
+
+    <div id="iframe-containerXXXXX" style="position: absolute;"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var imageXXXXX = document.getElementById('image');
+        var iframeContainerXXXXX = document.getElementById('iframe-containerXXXXX');
+
+        var originalWidthXXXXX = 1426;
+        var originalHeightXXXXX = 938;
+        var transparentWidthXXXXX = 1206;
+        var transparentHeightXXXXX = 748;
+        var transparentTopXXXXX = 85;
+        var transparentLeftXXXXX = 116;
+
+        var containerWidthXXXXX = imageXXXXX.offsetWidth;
+        var scaleFactorXXXXX = containerWidthXXXXX / originalWidthXXXXX;
+
+        var iframeWidthXXXXX = transparentWidthXXXXX * scaleFactorXXXXX;
+        var iframeHeightXXXXX = transparentHeightXXXXX * scaleFactorXXXXX;
+        var iframeTopXXXXX = transparentTopXXXXX * scaleFactorXXXXX;
+        var iframeLeftXXXXX = transparentLeftXXXXX * scaleFactorXXXXX;
+
+        iframeContainerXXXXX.style.width = iframeWidthXXXXX + 'px';
+        iframeContainerXXXXX.style.height = iframeHeightXXXXX + 'px';
+        iframeContainerXXXXX.style.top = iframeTopXXXXX + 'px';
+        iframeContainerXXXXX.style.left = iframeLeftXXXXX + 'px';
+
+        iframeContainerXXXXX.innerHTML = '<iframe title="2º ESO. TEMA 2.  INTERNET" frameborder="0" width="100%" height="100%" style="width: 100%; height: 100%;" src="https://view.genial.ly/6372985ffb20d50012d77a0a" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>';
+    });
+</script>
