@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La red de redes - Internet</title>
+    <style>
+        body {
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: flex-start;
+            margin: 20px;
+        }
+
+        img {
+            display: block;
+            margin-right: 20px;
+            border: none;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 350px;
+            height: 263px;
+        }
+
+        .texto-escritura {
+            font-family: monospace;
+            white-space: pre-wrap;
+            text-align: left;
+            display: inline; /* Para evitar desplazamientos */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: black; /* Color del cursor */
+            margin-left: 2px;
+            animation: parpadeo 1s steps(1) infinite;
+        }
+
+        /* Efecto de parpadeo */
+        @keyframes parpadeo {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img id="imagenReferencia22222" src="https://aulavirtual35.educa.madrid.org/ies.emiliocastelar.madrid/draftfile.php/41971/user/draft/413711273/Internet.gif" alt="Imagen de referencia22222">
+    
+    <div id="frase22222" class="texto-escritura"></div>
+
+    <script>
+        const imagenReferencia22222 = document.getElementById("imagenReferencia22222");
+        const frase22222 = "En este tema, exploraremos la red de redes y sus aplicaciones en nuestra vida cotidiana. Aprenderemos cómo funciona Internet, desde su estructura y protocolos hasta su impacto en la comunicación, el acceso a la información y el comercio electrónico. Descubriremos cómo navegar de manera segura, utilizar herramientas en línea y aprovechar las oportunidades que nos brinda este vasto universo digital.";
+
+        function escribir22222(frase, fraseElemento) {
+            let i22222 = 0;
+            fraseElemento.innerHTML = ""; // Inicializamos el contenido del elemento con la frase
+
+            const cursor = document.createElement("span"); // Creamos el cursor
+            cursor.classList.add("cursor"); // Le damos la clase para el estilo
+            fraseElemento.appendChild(cursor); // Añadimos el cursor al final del texto
+
+            function agregarCaracter22222() {
+                if (i22222 < frase.length) {
+                    cursor.remove(); // Quitamos temporalmente el cursor antes de añadir un nuevo carácter
+                    fraseElemento.innerHTML += frase.charAt(i22222); // Añadimos el siguiente carácter
+                    fraseElemento.appendChild(cursor); // Volvemos a añadir el cursor
+                    i22222++;
+
+                    // Velocidades diferentes para caracteres y espacios
+                    const esEspacio = frase.charAt(i22222 - 1) === ' ';
+                    const delay = esEspacio ? Math.random() * (300 - 200) + 200 : Math.random() * (80 - 30) + 30;
+
+                    setTimeout(agregarCaracter22222, delay); // Ajustamos el tiempo entre caracteres y palabras
+                } else {
+                    // Cuando se termina de escribir la frase, iniciamos el temporizador de 5 segundos
+                    setTimeout(() => {
+                        cursor.style.display = 'none'; // Ocultamos el cursor
+                    }, 5000); // Desaparece el cursor después de 5 segundos
+                }
+            }
+
+            agregarCaracter22222();
+        }
+
+        const opcionesObservador22222 = {
+            rootMargin: "0px",
+            threshold: 0.5
+        };
+
+        const observer22222 = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    escribir22222(frase22222, document.getElementById("frase22222"));
+                    observer22222.unobserve(imagenReferencia22222); // Dejar de observar la imagen después de iniciar la escritura automática
+                } else {
+                    document.getElementById("frase22222").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
+                }
+            });
+        }, opcionesObservador22222);
+
+        observer22222.observe(imagenReferencia22222); // Observar la imagen de referencia
+    </script>
+
+</body>
+</html>
