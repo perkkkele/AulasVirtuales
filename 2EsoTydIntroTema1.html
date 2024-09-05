@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mundo de la Tecnología</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        table {
+            font-size: 0.9375rem;
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-radius: 15px; /* Añadimos el borde redondeado */
+            width: 350px;
+            height: 197px;
+        }
+
+        th {
+            padding-left: 20px;
+            text-align: justify;
+            vertical-align: top;
+        }
+
+        #fraseELMUNDODELATECNOLOGIA {
+            font-size: 0.9375rem;
+            font-family: monospace;
+            overflow: hidden;
+            white-space: pre-wrap;
+            border-right: 2px solid black; /* Efecto de cursor */
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">
+                    <img id="imagenReferenciaELMUNDODELATECNOLOGIA" src="https://aulavirtual35.educa.madrid.org/ies.emiliocastelar.madrid/draftfile.php/41971/user/draft/501958877/EvolucionTecnologia.gif" alt="Imagen de referencia ELMUNDODELATECNOLOGIA">
+                </th>
+
+                <th scope="col">
+                    <div id="fraseELMUNDODELATECNOLOGIA"></div>
+                </th>
+            </tr>
+        </thead>
+    </table>
+
+    <script>
+        const imagenReferenciaELMUNDODELATECNOLOGIA = document.getElementById("imagenReferenciaELMUNDODELATECNOLOGIA");
+        const fraseELMUNDODELATECNOLOGIA = "El mundo de la tecnología ha experimentado un vertiginoso avance en las últimas décadas, transformando radicalmente la forma en que vivimos, trabajamos y nos comunicamos.\n\nEn este contexto en constante evolución, exploraremos cómo la tecnología moldea nuestro mundo actual y el papel fundamental que desempeña en la construcción del futuro.";
+
+        function escribirELMUNDODELATECNOLOGIA(frase, fraseElemento) {
+            let iELMUNDODELATECNOLOGIA = 0;
+            fraseElemento.innerHTML = "";
+
+            function agregarCaracterELMUNDODELATECNOLOGIA() {
+                if (iELMUNDODELATECNOLOGIA < frase.length) {
+                    fraseElemento.innerHTML += frase.charAt(iELMUNDODELATECNOLOGIA);
+                    iELMUNDODELATECNOLOGIA++;
+                    setTimeout(agregarCaracterELMUNDODELATECNOLOGIA, 50);
+                }
+            }
+
+            agregarCaracterELMUNDODELATECNOLOGIA();
+        }
+
+        const opcionesObservadorELMUNDODELATECNOLOGIA = {
+            rootMargin: "0px",
+            threshold: 0.5
+        };
+
+        const observerELMUNDODELATECNOLOGIA = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    escribirELMUNDODELATECNOLOGIA(fraseELMUNDODELATECNOLOGIA, document.getElementById("fraseELMUNDODELATECNOLOGIA"));
+                    observerELMUNDODELATECNOLOGIA.unobserve(imagenReferenciaELMUNDODELATECNOLOGIA); // Dejar de observar la imagen después de iniciar la escritura automática
+                } else {
+                    document.getElementById("fraseELMUNDODELATECNOLOGIA").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
+                }
+            });
+        }, opcionesObservadorELMUNDODELATECNOLOGIA);
+
+        observerELMUNDODELATECNOLOGIA.observe(imagenReferenciaELMUNDODELATECNOLOGIA); // Observar la imagen de referencia
+    </script>
+
+</body>
+</html>
