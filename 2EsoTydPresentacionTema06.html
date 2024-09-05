@@ -1,0 +1,34 @@
+<div id="container" style="position: relative;">
+    <img id="image" src="https://perkkkele.github.io/AulasVirtuales/MarcoTablet.png" alt="Imagen de fondo" style="display: block; width: 100%;">
+
+    <div id="iframe-containerMATERIALESDEUSOTECNOLOGICO" style="position: absolute;"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var imageMATERIALESDEUSOTECNOLOGICO = document.getElementById('image');
+        var iframeContainerMATERIALESDEUSOTECNOLOGICO = document.getElementById('iframe-containerMATERIALESDEUSOTECNOLOGICO');
+
+        var originalWidthMATERIALESDEUSOTECNOLOGICO = 1426;
+        var originalHeightMATERIALESDEUSOTECNOLOGICO = 938;
+        var transparentWidthMATERIALESDEUSOTECNOLOGICO = 1206;
+        var transparentHeightMATERIALESDEUSOTECNOLOGICO = 748;
+        var transparentTopMATERIALESDEUSOTECNOLOGICO = 85;
+        var transparentLeftMATERIALESDEUSOTECNOLOGICO = 116;
+
+        var containerWidthMATERIALESDEUSOTECNOLOGICO = imageMATERIALESDEUSOTECNOLOGICO.offsetWidth;
+        var scaleFactorMATERIALESDEUSOTECNOLOGICO = containerWidthMATERIALESDEUSOTECNOLOGICO / originalWidthMATERIALESDEUSOTECNOLOGICO;
+
+        var iframeWidthMATERIALESDEUSOTECNOLOGICO = transparentWidthMATERIALESDEUSOTECNOLOGICO * scaleFactorMATERIALESDEUSOTECNOLOGICO;
+        var iframeHeightMATERIALESDEUSOTECNOLOGICO = transparentHeightMATERIALESDEUSOTECNOLOGICO * scaleFactorMATERIALESDEUSOTECNOLOGICO;
+        var iframeTopMATERIALESDEUSOTECNOLOGICO = transparentTopMATERIALESDEUSOTECNOLOGICO * scaleFactorMATERIALESDEUSOTECNOLOGICO;
+        var iframeLeftMATERIALESDEUSOTECNOLOGICO = transparentLeftMATERIALESDEUSOTECNOLOGICO * scaleFactorMATERIALESDEUSOTECNOLOGICO;
+
+        iframeContainerMATERIALESDEUSOTECNOLOGICO.style.width = iframeWidthMATERIALESDEUSOTECNOLOGICO + 'px';
+        iframeContainerMATERIALESDEUSOTECNOLOGICO.style.height = iframeHeightMATERIALESDEUSOTECNOLOGICO + 'px';
+        iframeContainerMATERIALESDEUSOTECNOLOGICO.style.top = iframeTopMATERIALESDEUSOTECNOLOGICO + 'px';
+        iframeContainerMATERIALESDEUSOTECNOLOGICO.style.left = iframeLeftMATERIALESDEUSOTECNOLOGICO + 'px';
+
+        iframeContainerMATERIALESDEUSOTECNOLOGICO.innerHTML = '<iframe title="TD2ESO. TEMA 5. LOS MATERIALES DE USO TECNOLÓGICO" frameborder="0" width="100%" height="100%" style="width: 100%; height: 100%;" src="https://view.genial.ly/64fdf496cb1da20018bb5f8d" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>';
+    });
+</script>
