@@ -1,0 +1,34 @@
+<div id="container" style="position: relative;">
+    <img id="image" src="https://aulavirtual32.educa.madrid.org/ies.narcismonturiol.parla/pluginfile.php/39949/mod_resource/content/1/MarcoTablet.png" alt="Imagen de fondo" style="display: block; width: 100%;">
+
+    <div id="iframe-containerELMUNDODELATECNOLOGIAPRESENTACION" style="position: absolute;"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function() {
+        var imageELMUNDODELATECNOLOGIAPRESENTACION = document.getElementById('image');
+        var iframeContainerELMUNDODELATECNOLOGIAPRESENTACION = document.getElementById('iframe-containerELMUNDODELATECNOLOGIAPRESENTACION');
+
+        var originalWidthELMUNDODELATECNOLOGIAPRESENTACION = 1426;
+        var originalHeightELMUNDODELATECNOLOGIAPRESENTACION = 938;
+        var transparentWidthELMUNDODELATECNOLOGIAPRESENTACION = 1206;
+        var transparentHeightELMUNDODELATECNOLOGIAPRESENTACION = 748;
+        var transparentTopELMUNDODELATECNOLOGIAPRESENTACION = 85;
+        var transparentLeftELMUNDODELATECNOLOGIAPRESENTACION = 116;
+
+        var containerWidthELMUNDODELATECNOLOGIAPRESENTACION = imageELMUNDODELATECNOLOGIAPRESENTACION.offsetWidth;
+        var scaleFactorELMUNDODELATECNOLOGIAPRESENTACION = containerWidthELMUNDODELATECNOLOGIAPRESENTACION / originalWidthELMUNDODELATECNOLOGIAPRESENTACION;
+
+        var iframeWidthELMUNDODELATECNOLOGIAPRESENTACION = transparentWidthELMUNDODELATECNOLOGIAPRESENTACION * scaleFactorELMUNDODELATECNOLOGIAPRESENTACION;
+        var iframeHeightELMUNDODELATECNOLOGIAPRESENTACION = transparentHeightELMUNDODELATECNOLOGIAPRESENTACION * scaleFactorELMUNDODELATECNOLOGIAPRESENTACION;
+        var iframeTopELMUNDODELATECNOLOGIAPRESENTACION = transparentTopELMUNDODELATECNOLOGIAPRESENTACION * scaleFactorELMUNDODELATECNOLOGIAPRESENTACION;
+        var iframeLeftELMUNDODELATECNOLOGIAPRESENTACION = transparentLeftELMUNDODELATECNOLOGIAPRESENTACION * scaleFactorELMUNDODELATECNOLOGIAPRESENTACION;
+
+        iframeContainerELMUNDODELATECNOLOGIAPRESENTACION.style.width = iframeWidthELMUNDODELATECNOLOGIAPRESENTACION + 'px';
+        iframeContainerELMUNDODELATECNOLOGIAPRESENTACION.style.height = iframeHeightELMUNDODELATECNOLOGIAPRESENTACION + 'px';
+        iframeContainerELMUNDODELATECNOLOGIAPRESENTACION.style.top = iframeTopELMUNDODELATECNOLOGIAPRESENTACION + 'px';
+        iframeContainerELMUNDODELATECNOLOGIAPRESENTACION.style.left = iframeLeftELMUNDODELATECNOLOGIAPRESENTACION + 'px';
+
+        iframeContainerELMUNDODELATECNOLOGIAPRESENTACION.innerHTML = '<iframe title="1º ESO. TEMA01. PENSAMIENTO COMPUTACIONAL" frameborder="0" width="100%" height="100%" style="width: 100%; height: 100%;" src="https://view.genially.com/66ebdb6359e3bae261b46efe" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>';
+    });
+</script>
