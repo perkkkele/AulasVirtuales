@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia Artificial</title>
+    <style>
+        body {
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: flex-start;
+            margin: 20px;
+        }
+
+        img {
+            display: block;
+            margin-right: 20px;
+            border: none;
+            border-radius: 15px; /* Bordes redondeados */
+            width: 350px;
+            height: 233px;
+        }
+
+        .texto-escritura {
+            font-family: monospace;
+            white-space: pre-wrap;
+            text-align: left;
+            display: inline; /* Para evitar desplazamientos */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        /* Cursor parpadeante */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: black; /* Color del cursor */
+            margin-left: 2px;
+            animation: parpadeo 1s steps(1) infinite;
+        }
+
+        /* Efecto de parpadeo */
+        @keyframes parpadeo {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img id="imagenReferencia11" src="https://perkkkele.github.io/AulasVirtuales/2EsoTydIntro11Imagen1.gif" alt="Imagen de referencia11">
+    
+    <div id="frase11" class="texto-escritura"></div>
+
+    <script>
+        const imagenReferencia11 = document.getElementById("imagenReferencia11");
+        const frase11 = "La IA se está utilizando en muchos campos, como la medicina, la manufactura, la seguridad, el transporte y la atención al cliente. Los asistentes virtuales, los vehículos autónomos y los sistemas de recomendación son solo algunos ejemplos de aplicaciones de la IA que están transformando la forma en que vivimos y trabajamos. A medida que la tecnología continúa avanzando, se espera que la IA desempeñe un papel cada vez más importante en nuestras vidas. Vamos a ver como la IA impacta en nuestra vida";
+
+        function escribir11(frase, fraseElemento) {
+            let i11 = 0;
+            fraseElemento.innerHTML = ""; // Inicializamos el contenido del elemento con la frase
+
+            const cursor = document.createElement("span"); // Creamos el cursor
+            cursor.classList.add("cursor"); // Le damos la clase para el estilo
+            fraseElemento.appendChild(cursor); // Añadimos el cursor al final del texto
+
+            function agregarCaracter11() {
+                if (i11 < frase.length) {
+                    cursor.remove(); // Quitamos temporalmente el cursor antes de añadir un nuevo carácter
+                    fraseElemento.innerHTML += frase.charAt(i11); // Añadimos el siguiente carácter
+                    fraseElemento.appendChild(cursor); // Volvemos a añadir el cursor
+                    i11++;
+
+                    // Velocidades diferentes para caracteres y espacios
+                    const esEspacio = frase.charAt(i11 - 1) === ' ';
+                    const delay = esEspacio ? Math.random() * (300 - 200) + 100 : Math.random() * (80 - 30) + 30;
+
+                    setTimeout(agregarCaracter11, delay); // Ajustamos el tiempo entre caracteres y palabras
+                } else {
+                    // Cuando se termina de escribir la frase, iniciamos el temporizador de 5 segundos
+                    setTimeout(() => {
+                        cursor.style.display = 'none'; // Ocultamos el cursor
+                    }, 5000); // Desaparece el cursor después de 5 segundos
+                }
+            }
+
+            agregarCaracter11();
+        }
+
+        const opcionesObservador11 = {
+            rootMargin: "0px",
+            threshold: 0.5
+        };
+
+        const observer11 = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    escribir11(frase11, document.getElementById("frase11"));
+                    observer11.unobserve(imagenReferencia11); // Dejar de observar la imagen después de iniciar la escritura automática
+                } else {
+                    document.getElementById("frase11").innerHTML = ""; // Borrar la frase si la imagen ya no es observada
+                }
+            });
+        }, opcionesObservador11);
+
+        observer11.observe(imagenReferencia11); // Observar la imagen de referencia
+    </script>
+
+</body>
+</html>
+
