@@ -1,33 +1,36 @@
-<style>
-  .marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-    background: #004b7f; /* o tu color de fondo */
-    padding: 0.5em 0;
-  }
-  .marquee-text {
-    display: inline-block;
-    padding-left: 100%;
-    /* Duración de la animación en segundos: ajusta a tu gusto */
-    animation: marquee 20s linear infinite;
-  }
-  .marquee-container:hover .marquee-text {
-    animation-play-state: paused; /* pausa al hacer hover */
-  }
-  @keyframes marquee {
-    from   { transform: translateX(0%); }
-    to     { transform: translateX(-100%); }
-  }
-</style>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap">
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite;
+  font-family: 'Chelsea Market', cursive;
+  font-size: 1.5em; /* ajusta a tu gusto */
+  color: #fff;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background: #004b7f;
+  padding: 0.5em 0;
+}
+.marquee-container:hover .marquee-text {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from   { transform: translateX(0%); }
+  to     { transform: translateX(-100%); }
+}
 
 <div class="marquee-container">
-  <div class="marquee-text" style="color: #fff;">
+  <div class="marquee-text">
     En la planificación se exponen los trabajos que hay que ir haciendo cada semana —
     Es muy importante ir realizando las entregas dentro del plazo para que se califiquen del 0 al 10
   </div>
 </div>
-
 <img
   class="img-fluid atto_image_button_middle"
   src="https://perkkkele.github.io/AulasVirtuales/imagenes/MiCalendarioEscolar24_25.png"
